@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata: 
+  name: app-4
+spec: 
+  destination: 
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: project-5
+  source:
+    helm:
+      releaseName: application-from-helm
+      valueFiles: 
+        - custom-values.yaml
+    path: v03-argocd-applications/helm/nginx
+    repoURL: https://github.com/ShayGuedj-DevOps/argocd-deep-learning.git
+    targetRevision: main
+
