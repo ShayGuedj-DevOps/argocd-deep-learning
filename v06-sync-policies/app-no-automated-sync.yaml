@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application 
+metadata:
+  name: application-no-automated-sync
+spec:
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: no-automated-sync
+  project: default
+  source:
+    path: v03-argocd-applications/directory-of-manifests
+    repoURL: https://github.com/ShayGuedj-DevOps/argocd-deep-learning.git
+    targetRevision: main
